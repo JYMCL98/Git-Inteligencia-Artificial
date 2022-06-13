@@ -1,0 +1,164 @@
+#include <Pract_01.h>
+
+#define LCD_ENABLE_PIN  PIN_B0                                  
+#define LCD_RS_PIN      PIN_B1                               
+#define LCD_RW_PIN      PIN_B2                                
+#define LCD_DATA4       PIN_B4                               
+#define LCD_DATA5       PIN_B5
+#define LCD_DATA6       PIN_B6                          
+#define LCD_DATA7       PIN_B7
+
+#include <lcd.c>
+#use standard_io(a)
+#use standard_io(b)
+#use standard_io(c)
+#use standard_io(d)
+
+
+//variables de entrada
+int aux;
+//función escalón
+int hardlim(float n){
+   int value;
+   if(n>0){
+      value=1;
+   }
+   else{
+      value=0;
+   }
+   return value;
+}
+
+
+void main()
+{
+   lcd_init();//Inicializamos la lcd
+   
+   set_tris_A(0xFF);//dipswitch
+   set_tris_B(0b00001000); //rb3=entrada
+   set_tris_C(0x00);//salida a display
+   set_tris_D(0b00000111);//switch de 3 segmentos
+
+
+   
+   int B_1=0,B_01=1;
+   int B_2=0,B_02=1;
+   int B_3=0,B_03=1;
+   
+   
+   output_b(0x00);
+   output_c(0x00);
+   output_a(0x00);
+      
+   // Números del 0 al 9
+   //int digitos[10]={0b00111111,0b00000110,0b01011011,0b01001111,0b01100110,0b01101101,0b01111101,0b00000111,0b01111111,0b01101111};
+   
+   // Para el producto punto
+   int numero_0[7]={1,1,1,1,1,1,0};//0
+   int numero_1[7]={0,1,1,0,0,0,0};//1
+   int numero_2[7]={1,1,0,1,1,0,1};//2
+   int numero_3[7]={1,1,1,1,0,0,1};//3
+   int numero_4[7]={0,1,1,0,0,1,1};//4
+   int numero_5[7]={1,0,1,1,0,1,1};//5
+   int numero_6[7]={1,0,1,1,1,1,1};//6
+   int numero_7[7]={1,1,1,0,0,0,0};//7
+   int numero_8[7]={1,1,1,1,1,1,1};//8
+   int numero_9[7]={1,1,1,1,0,1,1};//9
+   
+   // Matriz de pesos sinápticos
+   // Pares
+   float W1[7]={-0.87268321,0.08188911,-0.42295511,-1.03021424,6.38421694,1.60244774,-0.43716323};
+   // Impares
+   float W2[7]={0.8545174,-0.45869286,2.03332194,0.54222582,-6.02184685,-1.60782562,0.86380921};
+   // Mayores a 5
+   float W3[7]={18.89322192,1.12472307,4.83394511,-16.90986587,3.57599895,3.55795348,9.52130864};
+   
+   //Vector de polarización
+   float b1 =-0.3846155;  // Pares
+   float b2 =-0.8864089;  // Impares
+   float b3 =-20.31890478;  // Mayores a 5
+   
+   while(TRUE)
+   {
+      int i,j;
+      float sum=0;
+      int perceptron=0;
+      //leemos la entrada
+      
+      int num[7]={0,0,0,0,0,0,0};
+      
+      num[0]=input_state(pin_A0);
+      num[1]=input_state(pin_A1);
+      num[2]=input_state(pin_A2);
+      num[3]=input_state(pin_A3);
+      num[4]=input_state(pin_A4);
+      num[5]=input_state(pin_A5);
+      num[6]=input_state(pin_B3);
+      
+      output_bit(pin_C0,num[0]);
+      output_bit(pin_C1,num[1]);
+      output_bit(pin_C2,num[2]);
+      output_bit(pin_C3,num[3]);
+      output_bit(pin_C4,num[4]);
+      output_bit(pin_C5,num[5]);
+      output_bit(pin_C6,num[6]);
+      
+      B_1=input_state(pin_D0);
+      B_2=input_state(pin_D1);
+      B_3=input_state(pin_D2);
+      
+      
+      if(B_1!=B_01 || B_2!=B_02 || B_3!=B_03)
+      {
+         //printf(lcd_putc,"\f");
+         if(B_1==1 && B_2==0 && B_3==0)//Número pares
+         {
+            //mensaje_par();
+            lcd_gotoxy(1,1);printf(lcd_putc," NUMEROS PARES  ");
+            delay_ms(1000);
+            //printf(lcd_putc,"\f");
+            aux=1;     
+         }
+         else if(B_1==0 && B_2==1 && B_3==0)//Numeros impares
+         {
+            //mensaje_impar();
+            delay_ms(1000);
+            printf(lcd_putc,"\f");
+            aux=2;
+         }
+         else if(B_1==0 && B_2==0 && B_3==1)//Numeros mayores a 5
+         {  
+            //mensaje_m5();
+            delay_ms(1000);
+            printf(lcd_putc,"\f");
+            aux=3;
+         }
+         else if(B_1==0 && B_2==0 && B_3==0)
+         {
+            //mensaje_n();
+            aux=4;
+         }
+         else
+         {
+            lcd_gotoxy(1,1);printf(lcd_putc,"  SELECCION NO  ");
+            lcd_gotoxy(1,2);printf(lcd_putc,"     VALIDA     ");
+            aux=4;
+         }
+      }
+      
+      if (aux!=4)
+      {
+
+      //entradas(aux);
+      }
+      
+      B_01=B_1;
+      B_02=B_2;
+      B_03=B_3;
+   
+      
+      
+   }
+
+}
+

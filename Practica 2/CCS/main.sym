@@ -1,0 +1,206 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-022 red
+023-024 green
+025-026 blue
+027-02A SCALE
+02B-02E gram
+02F-032 peso
+033-042 W
+043-046 b
+047-04A comb
+04B-04C @sprintf_string
+04D-050 MAIN.read1
+051-054 MAIN.offset
+055-058 MAIN.val1
+059-05C MAIN.val2
+05D-060 MAIN.sum
+061     MAIN.perceptron
+062     MAIN.j
+063-066 @PRINTF_L32D_707FPFPF.P1
+063-066 @DIVFF.P2
+063-064 TCS230_getFrequence_red.frequence_red
+063-064 TCS230_getFrequence_blue.frequence_blue
+063     lcd_init.i
+063-066 @SFTOI.P1
+063-066 @DTOF.P2
+063-066 readAverage.sum
+063-064 TCS230_getFrequence_green.frequence_green
+063-064 @PRINTF_LU_707.P1
+063     MAIN.@SCRATCH1
+063     @PSTRINGC7_707.@SCRATCH1
+064-067 lcd_init.LCD_INIT_STRING
+064     MAIN.@SCRATCH2
+064     @PSTRINGC7_707.@SCRATCH2
+065     MAIN.@SCRATCH3
+065     @PRINTF_LU_707.@SCRATCH1
+065     @PSTRINGC7_707.@SCRATCH3
+066     MAIN.@SCRATCH4
+066     @PRINTF_LU_707.@SCRATCH2
+066     @PSTRINGC7_707.@SCRATCH4
+067-06A hardlim.n
+067-06A @DIVFF.P1
+067     @PRINTF_L32D_707FPFPF.P2
+067     readAverage.k
+067     MAIN.@SCRATCH5
+067     @PRINTF_LU_707.@SCRATCH3
+068-06B readCount.data
+068-069 @ITOF.P1
+068     lcd_init.@SCRATCH1
+068     MAIN.@SCRATCH6
+068     @PRINTF_LU_707.@SCRATCH4
+068     @PRINTF_L32D_707FPFPF.@SCRATCH1
+069     MAIN.@SCRATCH7
+069     @PRINTF_LU_707.@SCRATCH5
+069     @PRINTF_L32D_707FPFPF.@SCRATCH2
+06A-06D @ADDFF.P1
+06A     @PRINTF_LU_707.@SCRATCH6
+06A     @PRINTF_L32D_707FPFPF.@SCRATCH3
+06B     hardlim.value
+06B     @DIVFF.@SCRATCH1
+06B     @PRINTF_LU_707.@SCRATCH7
+06B     @PRINTF_L32D_707FPFPF.@SCRATCH4
+06C     readCount.j
+06C-06F @FLT.P1
+06C     @DIVFF.@SCRATCH2
+06C     @PRINTF_L32D_707FPFPF.@SCRATCH5
+06D     readCount.@SCRATCH1
+06D     @DIVFF.@SCRATCH3
+06D     @PRINTF_L32D_707FPFPF.@SCRATCH6
+06E-071 @ADDFF.P1
+06E     @DIVFF.@SCRATCH4
+06E     @PRINTF_L32D_707FPFPF.@SCRATCH7
+06F     @DIVFF.@SCRATCH5
+06F     @PRINTF_L32D_707FPFPF.@SCRATCH8
+070-073 @DIV3232.P1
+070-073 @FTOSD.P2
+070-073 @FLT.P3
+070     lcd_putc.c
+070-073 @MULFF.P1
+070     @DIVFF.@SCRATCH6
+071     @delay_ms1.P1
+071     lcd_gotoxy.x
+072     lcd_gotoxy.y
+073     lcd_gotoxy.address
+074     lcd_gotoxy.@SCRATCH1
+074     @FLT.@SCRATCH1
+074     @FTOSD.@SCRATCH1
+075     lcd_send_byte.address
+075     @FLT.@SCRATCH2
+076     lcd_send_byte.n
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B-07E @DIV3232.P1
+07B-07E @MULFF.P2
+07B     lcd_read_byte.low
+07B     lcd_send_byte.@SCRATCH1
+07C     lcd_read_byte.high
+07C     lcd_send_nibble.n
+07D     lcd_read_nibble.n
+07D     lcd_read_byte.@SCRATCH1
+07E     lcd_read_nibble.@SCRATCH1
+0A0     @DIV3232.@SCRATCH1
+0A0     @MULFF.@SCRATCH1
+0A0     @ADDFF.@SCRATCH1
+0A1     @DIV3232.@SCRATCH2
+0A1     @MULFF.@SCRATCH2
+0A1     @ADDFF.@SCRATCH2
+0A2     @DIV3232.@SCRATCH3
+0A2     @MULFF.@SCRATCH3
+0A2     @ADDFF.@SCRATCH3
+0A3     @DIV3232.@SCRATCH4
+0A3     @MULFF.@SCRATCH4
+0A3     @ADDFF.@SCRATCH4
+0A4     @DIV3232.@SCRATCH5
+0A4     @MULFF.@SCRATCH5
+0A4     @ADDFF.@SCRATCH5
+0A5     @ADDFF.@SCRATCH6
+0A6     @ADDFF.@SCRATCH7
+0A7     @ADDFF.@SCRATCH8
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const780.call
+000009  @const785.call
+00000F  @delay_ms1
+000024  lcd_send_nibble
+000055  lcd_read_nibble
+000086  lcd_send_byte
+00008E  lcd_read_byte
+0000E2  lcd_init
+000128  TCS230_init
+00012D  @DIV3232
+00017E  readAverage
+000187  readCount
+00020B  @DTOF
+000226  @DIVFF
+0002F2  TSC230_clear
+000302  TCS230_getFrequence_red
+000327  TCS230_getFrequence_green
+00034C  TCS230_getFrequence_blue
+000371  @SFTOI
+000392  lcd_gotoxy
+0003A4  lcd_putc
+0003D0  @PRINTF_LU_707
+000433  @MULFF
+0004B9  @PRINTF_L32D_707FPFPF
+0004E0  @FTOSD
+00059B  @ITOF
+0005BA  @ADDFF
+000725  hardlim
+000731  @FLT
+00077A  @PSTRINGC7_707
+000800  @cinit1
+000800  MAIN
+000834  @cinit2
+
+Project Directory:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 2\
+
+Project Files:
+    main.c                                                  [21-nov.-21 18:09  CRC=1B6BD75E]
+    main.h                                                  [18-nov.-21 15:07  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F887.h [30-oct.-19 14:48  CRC=C6420252]
+    TCS230.c                                                [20-nov.-21 12:55  CRC=4DFE0575]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=D2F84E39
+Program memory checksum=0000
+Hex file CRC=EB89
+
+Units:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 2\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

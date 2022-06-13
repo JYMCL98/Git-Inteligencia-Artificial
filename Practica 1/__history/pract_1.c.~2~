@@ -1,0 +1,15 @@
+#include <pract_1.h>
+#include <lcd.c>
+
+void main()
+{
+   lcd_init();
+   while(TRUE)
+   {
+      lcd_gotoxy(1,1);
+      printf(lcd_putc,"HOLA MUNDO");
+
+      //TODO: User Code
+   }
+
+}

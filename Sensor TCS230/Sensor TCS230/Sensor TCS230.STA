@@ -1,0 +1,64 @@
+
+ROM used:   759/8192 (9%)
+            759/8192 (9%) including unused fragments
+
+            0.7 Average locations per line
+            5.7 Average locations per statement
+
+RAM used:   12/368 (3%) at main() level
+            30/368 (8%) worst case
+
+Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   71    30  23  Sensor TCS230.c
+  671     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
+   52    31  23  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\TCS230.c
+  263    72  54  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\LCD_16X2.c
+----- -----
+ 1057   133 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   3    1             @delay_ms1
+0      5   1    0    30  1.3  TCS230_init
+0     40   5    2   216  3.2  TCS230_getFrequence_red
+0     40   5    2   216  3.2  TCS230_getFrequence_green
+0     40   5    2   221  2.9  TCS230_getFrequence_blue
+0      8   1    0             @const629
+0     46   6    1   326  2.8  lcd_send_nibble
+0     39   5    3   235  3.8  lcd_send_byte
+0     47   6    2   380  4.7  lcd_init
+0     18   2    4   186  5.5  lcd_gotoxy
+0     36   5    1   272  4.1  lcd_putc
+0     92  12    0    17  0.8  lcd_clear
+0      1   0    0             @const649
+ Inline         4             @PSTRINGC7_643
+0    224  30    0  1072  4.8  MAIN
+0     99  13    9             @PRINTF_LU_643
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               11
+    Statements              133
+    Comments                149
+    Volume (V)              5027
+    Difficulty (D)          37.0
+    Effort to implement (E) 185843
+    Time to implement (T)   2 hours, 52 minutes
+    Est Delivered Bugs (B)  1
+    Cyclomatic Complexity   11
+    Maintainability (MI)    71
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   755  1289  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

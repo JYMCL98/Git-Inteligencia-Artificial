@@ -1,0 +1,251 @@
+#include <Prueba.h>
+
+//sensor de color
+#define P_TCS230 PIN_D5 //OUT
+#define S2 PIN_D6//S2
+#define S3 PIN_D7//S3
+//galga
+#define DT1 PIN_C0
+#define SCK PIN_C1
+//Definimos los pines de la LCD
+#define LCD_ENABLE_PIN  PIN_B0                                  
+#define LCD_RS_PIN      PIN_B1                               
+#define LCD_RW_PIN      PIN_B2                                
+#define LCD_DATA4       PIN_B4                               
+#define LCD_DATA5       PIN_B5
+#define LCD_DATA6       PIN_B6                          
+#define LCD_DATA7       PIN_B7
+// Incluímos la librería de la LCD
+#include <lcd.c>
+// Uso de puertos digitales
+#use standard_io(a)
+//#use standard_io(b)
+#use standard_io(c)
+#use standard_io(d)
+
+double SCALE = 36;
+float peso2=0;
+int r1,g1,b1=0;
+
+unsigned int32 readCount(void){
+  unsigned int32 data;
+  unsigned int8 j;
+  output_bit(DT1, 1);
+  output_bit(SCK, 0);
+  data = 0;
+
+  while (input(DT1));
+  for (j = 0; j < 24; j++){
+    output_bit(SCK, 1);
+    data = data << 1;
+    output_bit(SCK, 0);
+    if (input(DT1)){
+      data++;
+    }
+  }
+  output_bit(SCK, 1);
+  data = data ^ 0x800000;
+  output_bit(SCK, 0);
+  return data;
+}
+
+int32 readAverage(void){
+  unsigned int32 sum = 0;
+  for(int k = 0; k < 20; k++) {
+    sum += readCount();
+  }
+  sum /= 20;
+  return sum;
+}
+
+float n;
+
+/*
+// an array with 5 rows and 2 columns
+float n[5][2] = {{0,0}, //initializers for row indexed by 0
+                 {1,2}, //initializers for row indexed by 1
+                 {2,4}, //initializers for row indexed by 2
+                 {3,6}, //initializers for row indexed by 3
+                 {4,8}}; //initializers for row indexed by 4
+*/
+
+long Red,Green,Blue;
+// Inicializa el sensor de color TCS230
+void TCS230_init(void){
+   setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);// Inicializa el timer 1 con un preer de 8
+}
+
+//
+void TSC230_clear(void){
+   output_high(S2);
+   output_low(S3);
+   while(input_state(P_TCS230)){
+   }
+   set_timer1(0); 
+   while(!input_state(P_TCS230)){
+   }
+}
+
+// Matriz de pesos sinápticos
+float W[3]={-2.86667969,  173.98601737, -144.76813664};
+//Vector de polarización
+float b=-37.96316044;
+
+//función escalón
+int hardlim(n){
+   int value1,value2;
+   if(n > 0){
+      value1 = 1;
+   }
+   else{
+      value1 = 0;
+   }
+   if(n > 0){
+      value2 = 1;
+   }
+   else{
+      value2 = 0;
+   }
+   return value1,value2;
+}
+
+//Mensaje de bienvenido
+void bienvenido(){
+   lcd_gotoxy(1,1);
+   printf(lcd_putc,"\f BIENVENIDO ");
+   delay_ms(1000);
+}
+
+//leer color rojo (tipo de fotodiodo)
+int getRed(){
+    TSC230_clear();
+    long red=0;
+    output_low(S2);
+    output_low(S3);
+    while(input_state(P_TCS230)){}
+    set_timer1(0);
+    while(!input_state(P_TCS230)){}
+    red = get_timer1();
+    return red;
+}
+//leer color verde (tipo de fotodiodo)
+int getGreen(){
+    TSC230_clear();
+    long green=0;
+    output_high(s2);
+    output_high(s3);
+    while(input_state(P_TCS230)){}
+    set_timer1(0);
+    while(!input_state(P_TCS230)){}
+    green = get_timer1();
+    return green;
+}
+//leer color azul (tipo de fotodiodo)
+int getBlue(){
+    TSC230_clear();
+    long blue=0;
+    output_low(s2);
+    output_high(s3);
+    while(input_state(P_TCS230)){}
+    set_timer1(0);
+    while(!input_state(P_TCS230)){}
+    blue = get_timer1();
+    return blue;
+}
+
+void perceptron(int Red_, int Green_, int Blue_){//, int W_
+      int datos[3];//4
+      //leemos la entrada de datos
+      datos[0] = Red_,
+      datos[1] = Green_;
+      datos[2] = Blue_;
+      //datos[3] = W_;
+      int j = 0; 
+      int perceptron = 0;
+      float sum = 0;
+      while(j<3){
+         sum += datos[j]*W[j]; //producto punto
+         j++;
+      }
+      perceptron = hardlim(sum+b);
+      //se imprime el resultado
+      lcd_gotoxy(1,1);
+      if(perceptron == 1){
+         printf(lcd_putc,"\f     MANZANA       ");
+      }
+      else{
+         printf(lcd_putc,"\f     PLATANO      ");
+      }
+      delay_ms(1000);
+}
+
+
+void main(){
+   lcd_init(); //Inicializamos la lcd
+   TCS230_init();
+   //set_tris_a(0xFF);
+   //s0->vcc
+   //s1->gnd
+   //sensor de color
+   //20 %
+   
+   bienvenido();
+   printf(lcd_putc, "\f Iniciando...");
+   unsigned int32 read1 = 0, offset = 0; //
+   float gram = 0;
+   offset = readAverage();
+   delay_ms(2000);
+   
+   while(TRUE){
+      lcd_gotoxy(1,1);
+      printf(lcd_putc,"\f  Coloque\n  la fruta");
+      delay_ms(2000);
+      //peso2 = 0;
+      
+      read1 = readAverage();
+      if (offset >= read1) {
+         float val1 = (offset - read1);
+         gram = val1;
+      }
+      
+      else{
+         float val2 = (read1 - offset);
+         gram = val2;
+      }
+      
+      
+      // Lectura para el color rojo
+      Red = getRed();
+      delay_ms(250);
+      // Lectura para el color verde
+      Green = getGreen();
+      delay_ms(250);
+      // Lectura para el color azul
+      Blue = getBlue();
+      delay_ms(250);
+      
+      //imprimir datos en pantalla
+      lcd_gotoxy(1,1);
+      printf(lcd_putc,"\f");
+      printf(lcd_putc,"R:%Lu", Red);
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"G:%Lu", Green);
+      lcd_gotoxy(8,1);
+      printf(lcd_putc,"B:%Lu", Blue);
+      
+      lcd_gotoxy(8,2);
+      printf(lcd_putc, "W:%f", gram);
+      //printf(lcd_putc, "\f%f", gram / SCALE);
+      delay_ms(5000);
+      
+      perceptron(Red,Green,Blue);
+      delay_ms(5000);      
+     // r1=Red;
+     // g1=Green;
+     // b1=Blue;
+      
+      
+   }
+}
+
+

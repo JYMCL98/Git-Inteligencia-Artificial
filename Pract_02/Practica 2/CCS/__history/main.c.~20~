@@ -1,0 +1,115 @@
+#include <main.h>
+//Definimos los pines de la LCD que vamos a ocupar para comodidad
+#define LCD_ENABLE_PIN  PIN_B0                                  
+#define LCD_RS_PIN      PIN_B1                               
+#define LCD_RW_PIN      PIN_B2                                
+#define LCD_DATA4       PIN_B4                               
+#define LCD_DATA5       PIN_B5
+#define LCD_DATA6       PIN_B6                          
+#define LCD_DATA7       PIN_B7
+
+#define P_TCS230 PIN_D5
+#define S2 PIN_D6
+#define S3 PIN_D7
+
+
+#include<lcd.c>
+
+
+#use standard_io(B)
+#use standard_io(D)
+
+void TCS230_init(void)                           // Inicializa el sensor
+{
+   setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);     // Inicializa el timer 1 con un preescaler de 8
+}
+
+void TSC230_clear(void)
+{
+   output_high(S2);
+   output_low(S3);
+   while(input_state(P_TCS230)){
+   }
+   set_timer1(0); 
+   while(!input_state(P_TCS230)){
+   }
+}
+
+unsigned long TCS230_getFrequence_red(void)      // Funcion para obtencion de valores del canal rojo
+{
+   TSC230_clear();
+   unsigned long frequence_red = 0;
+   output_low(S2);
+   output_low(S3);
+   while(input_state(P_TCS230)){
+   } 
+   set_timer1(0); 
+   while(!input_state(P_TCS230)){
+   } 
+   frequence_red = get_timer1();
+   return frequence_red;
+}
+
+unsigned long TCS230_getFrequence_green(void)    // Funcion para obtencion de valores del canal verde
+{
+   TSC230_clear();
+   unsigned long frequence_green = 0;
+   output_high(S2);
+   output_high(S3);
+   while(input_state(P_TCS230)){
+   } 
+   set_timer1(0); 
+   while(!input_state(P_TCS230)){
+   } 
+   frequence_green = get_timer1();
+   return frequence_green;
+}
+
+unsigned long TCS230_getFrequence_blue(void)     // Funcion para obtencion de valores del canal azul
+{
+   TSC230_clear();
+   unsigned long frequence_blue = 0;
+   output_low(S2);
+   output_high(S3);
+   while(input_state(P_TCS230)){
+   } 
+   set_timer1(0); 
+   while(!input_state(P_TCS230)){
+   } 
+   frequence_blue = get_timer1();
+   return frequence_blue;
+}
+
+long red = 0;
+long green = 0;
+long blue = 0;
+
+
+void main()
+{
+
+
+
+   lcd_init();
+   
+   
+   while(TRUE)
+   {
+      red = TCS230_getFrequence_red();                  // Lectura para el color rojo
+      green = TCS230_getFrequence_green();              // Lectura para el color verde
+      blue = TCS230_getFrequence_blue();
+      
+      printf(lcd_putc,"\f");
+      lcd_gotoxy(1,1); 
+      printf(lcd_putc,"R: %Lu", red);
+      //printf(lcd_putc,"R: ");
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"G: %Lu", green);
+      lcd_gotoxy(9,1);
+      printf(lcd_putc,"B: %Lu", blue);
+      delay_ms(250);
+
+      //TODO: User Code
+   }
+
+}

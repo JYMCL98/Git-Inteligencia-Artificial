@@ -1,0 +1,82 @@
+#include <pract_1.h>
+#include <lcd.c>
+
+int hardlim(float n)
+{
+   int value;
+   if (n>0)
+   {
+      value =1;
+   }
+   else
+   {
+      value =0;
+   }
+   return value;
+}
+
+void main()
+{
+   lcd_init();
+   int digitos[10] = {0b00111111, 0b00000110,0b01011011, 0b01001111,
+   0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111};
+   
+   int numero_0[7] = {1,1,1,1,1,1,0};
+   int numero_1[7] = {0,1,1,0,0,0,0};
+   int numero_2[7] = {1,1,0,1,1,0,1};
+   int numero_3[7] = {1,1,1,1,0,0,1};
+   int numero_4[7] = {0,1,1,0,0,1,1};
+   int numero_5[7] = {1,0,1,1,0,1,1};
+   int numero_6[7] = {1,1,1,1,1,1,0};
+   int numero_7[7] = {1,1,1,1,1,1,0};
+   int numero_8[7] = {1,1,1,1,1,1,0};
+   int numero_9[7] = {1,1,1,1,1,1,0};
+   
+   
+   /*P = [[1,1,1,1,1,1,0],  #0
+    [0,1,1,0,0,0,0],  #1
+    [1,1,0,1,1,0,1],  #2
+    [1,1,1,1,0,0,1],  #3
+    [0,1,1,0,0,1,1],  #4
+    [1,0,1,1,0,1,1],  #5
+    [1,0,1,1,1,1,1],  #6
+    [1,1,1,0,0,0,0],  #7
+    [1,1,1,1,1,1,1],  #8
+    [1,1,1,1,0,1,1]]  #9*/
+   
+   float W[7] = {5.02844559,-1.62532975,-3.15659253,1.94180874,-4.54300769,-7.06091107,1.33117682};
+   float b = 3.00670671;
+   
+   while(TRUE)
+   {
+      
+      for (int i=0; i<10;i++)
+      {
+         int j;
+         float sum=0;
+         int perceptron =0;
+         for (j=0;j<7;j++)
+         {
+            sum = sum + numero_0[j]*w[j];
+         }
+         
+         perceptron = hardlim(sum+b);
+         if (perceptron == 1)
+         {
+            lcd_gotoxy(1,1);
+            printf(lcd_putc,"\fsi es par");
+         }
+         else
+         {
+            lcd_gotoxy(1,1);
+            printf(lcd_putc,"\fno es par");
+         }
+         output_c(digitos[i]);
+         delay_ms(1000);
+      }
+         
+
+      //TODO: User Code
+   }
+
+}

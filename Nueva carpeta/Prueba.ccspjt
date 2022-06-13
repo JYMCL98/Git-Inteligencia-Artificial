@@ -1,0 +1,49 @@
+[PROJECT]
+Target=Prueba.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.091
+Compiler=PCH
+CCSVersion=5.091
+[Target Data]
+FileList=Prueba.c
+[Directories]
+Include=
+[C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Nueva carpeta\Prueba]
+Type=4
+[mru-list]
+1=Prueba.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=18-11-2021
+D1_L=8
+D1_L1=[45529]Project Opened.
+D1_L2=[45544]Started Editing.
+D1_L3=[45844]Stopped Editing.
+D1_L4=[46322]Started Editing.
+D1_L5=[46653]Stopped Editing.
+D1_L6=[48363]Started Editing.
+D1_L7=[48937]Stopped Editing.
+TotalEdit=6
+TotalDebug=0
+D1_E=6
+D1_D=0
+D1_L8=[51388]Project Closed.
+
+[Opened Files]
+1=Prueba.c
+t1=189
+Count=2
+2=Prueba.h
+t2=189
+[Prueba.c]
+Type=4
+
+[defines]
+buildcount=5
+[Units]
+Count=1
+1=Prueba (main)

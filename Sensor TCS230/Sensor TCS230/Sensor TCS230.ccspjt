@@ -1,0 +1,42 @@
+[PROJECT]
+Target=Sensor TCS230.hex
+Processor_Text=PIC16F887
+CCSVersion=5.015
+Compiler=PCM
+[Target Data]
+FileList=Sensor TCS230.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[Sensor TCS230.c]
+Type=4
+[mru-list]
+1=Sensor TCS230.c
+[Opened Files]
+1=Sensor TCS230.c
+2=..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h
+t1=66
+Count=2
+t2=1
+[Units]
+Count=1
+1=Sensor TCS230 (main)
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=13-11-2021
+D1_L=8
+D1_L1=[49261]Project Opened.
+D1_L2=[50891]Project Closed.
+D1_L3=[53134]Project Opened.
+D1_L4=[53215]Project Closed.
+D1_L5=[53215]Project Opened.
+D1_L6=[53263]Project Closed.
+D1_L7=[53282]Project Opened.
+D1_L8=[53311]Project Closed.
+D2=19-11-2021
+D2_L=2
+D2_L1=[41389]Project Opened.
+D2_L2=[41538]Project Closed.

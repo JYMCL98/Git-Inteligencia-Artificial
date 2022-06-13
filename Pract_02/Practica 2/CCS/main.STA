@@ -1,0 +1,80 @@
+
+ROM used:   2646/8192 (32%)
+            2694/8192 (33%) including unused fragments
+
+            1.8 Average locations per line
+            12.4 Average locations per statement
+
+RAM used:   79/368 (21%) at main() level
+            104/368 (28%) worst case
+
+Stack used: 5 worst case (5 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  161    73  34  main.c
+    5     0   0  main.h
+  796     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F887.h
+   61    41  19  TCS230.c
+  456   100  47  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+----- -----
+ 1479   214 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     21   1    1             @delay_ms1
+0      5   0    0     30  1.3  TCS230_init
+0     16   1    0    117  2.1  TSC230_clear
+0     37   1    2    216  3.2  TCS230_getFrequence_red
+0     37   1    2    216  3.2  TCS230_getFrequence_green
+0     37   1    2    219  3.0  TCS230_getFrequence_blue
+ Inline         3    760  4.5  lcd_read_byte
+0     49   2    2    262  3.7  lcd_read_nibble
+0     49   2    1    399  2.4  lcd_send_nibble
+0     92   3    3    415  3.7  lcd_send_byte
+0     70   3    6    852  6.2  lcd_init
+0     18   1    4    208  6.3  lcd_gotoxy
+0     44   2    1    354  4.7  lcd_putc
+0     85   3    5    114  3.4  hardlim
+ Inline        10             @FLT
+ Inline         6    551  6.4  readCount
+0    141   5    5    191  4.5  readAverage
+0     81   3   16             @DIV3232
+1    646  24   29   1827  9.0  MAIN
+0     27   1    4             @DTOF
+0    204   8   14             @DIVFF
+0     33   1    4             @SFTOI
+0     99   4    9             @PRINTF_LU_707
+0    134   5   16             @MULFF
+ Inline         5             @FTOSD
+0    226   9   13             @PRINTF_L32D_707FPFPF
+0     31   1    2             @ITOF
+0    363  14   25             @ADDFF
+0      5   0    0             @const780
+0     86   3    4             @PSTRINGC7_707
+0      6   0    0             @const785
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               16
+    Statements              214
+    Comments                271
+    Volume (V)              10982
+    Difficulty (D)          66.6
+    Effort to implement (E) 731134
+    Time to implement (T)   11 hours, 17 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   14
+    Maintainability (MI)    99
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1996  48  
+00800-00FFF   646  1402  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

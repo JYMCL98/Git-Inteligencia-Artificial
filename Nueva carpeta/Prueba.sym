@@ -1,0 +1,206 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004-007 SCALE
+008-00B peso2
+00C     r1
+00D     g1
+00E     b1
+00F-012 n
+013-014 Red
+015-016 Green
+017-018 Blue
+019-024 W
+025-028 b
+029-02A @sprintf_string
+02B-02E MAIN.read1
+02F-032 MAIN.offset
+033-036 MAIN.gram
+037-03A MAIN.val1
+03B-03E MAIN.val2
+03F     perceptron.Red_
+03F-042 @PRINTF_L32D_723FPFPF.P1
+03F-040 getBlue.Blue
+03F     lcd_init.i
+03F-040 getGreen.Green
+03F-042 @DTOF.P1
+03F-042 readAverage.sum
+03F-040 getRed.Red
+03F-040 @PRINTF_LU_723.P1
+03F     bienvenido.@SCRATCH1
+03F     MAIN.@SCRATCH1
+040     perceptron.Green_
+040-043 lcd_init.LCD_INIT_STRING
+041     perceptron.Blue_
+041     @PRINTF_LU_723.@SCRATCH1
+042-044 perceptron.datos
+042     @PRINTF_LU_723.@SCRATCH2
+043     @PRINTF_L32D_723FPFPF.P1
+043     readAverage.k
+043     @PRINTF_LU_723.@SCRATCH3
+044-047 readCount.data
+044     lcd_init.@SCRATCH1
+044     @PRINTF_LU_723.@SCRATCH4
+044     @PRINTF_L32D_723FPFPF.@SCRATCH1
+045     perceptron.j
+045     @PRINTF_LU_723.@SCRATCH5
+045     @PRINTF_L32D_723FPFPF.@SCRATCH2
+046     perceptron.perceptron
+046     @PRINTF_LU_723.@SCRATCH6
+046     @PRINTF_L32D_723FPFPF.@SCRATCH3
+047-04A perceptron.sum
+047     @PRINTF_LU_723.@SCRATCH7
+047     @PRINTF_L32D_723FPFPF.@SCRATCH4
+048     readCount.j
+048     @PRINTF_L32D_723FPFPF.@SCRATCH5
+049     readCount.@SCRATCH1
+049     @PRINTF_L32D_723FPFPF.@SCRATCH6
+04A     @PRINTF_L32D_723FPFPF.@SCRATCH7
+04B-04E @SFTOI.P1
+04B     @PSTRINGC_723.@SCRATCH1
+04B     perceptron.@SCRATCH1
+04B     @PRINTF_L32D_723FPFPF.@SCRATCH8
+04C     hardlim.n
+04C-04F @DIV3232.P1
+04C-04F @FTOSD.P2
+04C     @PSTRINGC_723.@SCRATCH2
+04C     perceptron.@SCRATCH2
+04D     hardlim.value1
+04D     lcd_putc.c
+04D     perceptron.@SCRATCH3
+04E     @delay_ms1.P1
+04E     lcd_gotoxy.x
+04E     hardlim.value2
+04E     perceptron.@SCRATCH4
+04F     lcd_gotoxy.y
+04F     perceptron.@SCRATCH5
+050     lcd_gotoxy.address
+050-053 @DIV3232.P1
+050-053 @MULFF.P2
+050-051 @ITOF.P3
+050     perceptron.@SCRATCH6
+050     @FTOSD.@SCRATCH1
+051     lcd_gotoxy.@SCRATCH1
+051     perceptron.@SCRATCH7
+052     lcd_send_byte.address
+052-055 @ADDFF.P1
+053     lcd_send_byte.n
+054-057 @MULFF.P1
+054     lcd_read_byte.low
+054     lcd_send_byte.@SCRATCH1
+054     @DIV3232.@SCRATCH1
+055     lcd_read_byte.high
+055     lcd_send_nibble.n
+055     @DIV3232.@SCRATCH2
+056     lcd_read_nibble.n
+056-059 @ADDFF.P1
+056     lcd_read_byte.@SCRATCH1
+056     @DIV3232.@SCRATCH3
+057     lcd_read_nibble.@SCRATCH1
+057     @DIV3232.@SCRATCH4
+058     @DIV3232.@SCRATCH5
+058     @MULFF.@SCRATCH1
+059     @MULFF.@SCRATCH2
+05A     @MULFF.@SCRATCH3
+05A     @ADDFF.@SCRATCH1
+05B     @ADDFF.@SCRATCH2
+05C     @ADDFF.@SCRATCH3
+05D     @ADDFF.@SCRATCH4
+05E     @ADDFF.@SCRATCH5
+05F     @ADDFF.@SCRATCH6
+060     @ADDFF.@SCRATCH7
+061     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PROGRAM_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @const762.call
+000012  @const791.call
+000028  @const792.call
+00003C  @const796.call
+00004C  @const800.call
+000062  @delay_ms1
+00008A  lcd_send_nibble
+0000C8  lcd_read_nibble
+00011A  lcd_read_byte
+000164  lcd_send_byte
+0001AA  lcd_init
+000226  TCS230_init
+00022E  lcd_gotoxy
+000250  lcd_putc
+0002A0  @PSTRINGC_723
+0002C0  bienvenido
+0002E4  readCount
+00034E  @DIV3232
+0003DC  readAverage
+000442  @DTOF
+000476  TSC230_clear
+000490  getRed
+0004BA  getGreen
+0004E4  getBlue
+00050E  @PRINTF_LU_723
+0005C8  @MULFF
+0006BA  @FTOSD
+0006FA  @PRINTF_L32D_723FPFPF
+000874  @ITOF
+0008AC  @ADDFF
+000B16  @SFTOI
+000B50  hardlim
+000B70  perceptron
+000CB0  MAIN
+000CB0  @cinit1
+000CEA  @cinit2
+
+Project Directory:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Nueva carpeta\
+
+Project Files:
+    Prueba.c                                                [18-nov.-21 13:26  CRC=6B45940E]
+    Prueba.h                                                [18-nov.-21 13:30  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [30-oct.-19 14:52  CRC=B77A8E99]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=C60C91BB
+Program memory checksum=0000
+Hex file CRC=98A1
+
+Units:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Nueva carpeta\Prueba (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Prueba.xsym
+    Errors:      Prueba.err
+    Ext Symbols: Prueba.esym
+    INHX32:      Prueba.hex
+    Symbols:     Prueba.sym
+    List:        Prueba.lst
+    Debug/COFF:  Prueba.cof
+    Project:     Prueba.ccspjt
+    Call Tree:   Prueba.tre
+    Statistics:  Prueba.STA

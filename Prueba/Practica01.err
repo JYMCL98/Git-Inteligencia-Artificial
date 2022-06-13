@@ -1,0 +1,11 @@
+Compiling C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Prueba\Practica01 on 24-oct.-21 at 16:37
+*** Error 18 "C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Prueba\Practica01.c" Line 1(9,45): File can not be opened
+    Not in "C:\Program Files (x86)\PICC\Devices\Practica01.h"
+    Not in "C:\Program Files (x86)\PICC\Drivers\Practica01.h"
+    Not in source "C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Prueba\Practica01.h"
+    Not in local "Practica01.h"
+    Not in project "C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Prueba\Practica01.h"
+    Not in default "C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Prueba\Practica01.h"
+*** Error 128 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 76(9,15): A #DEVICE required before this line
+      2 Errors,  0 Warnings.
+Build Failed.

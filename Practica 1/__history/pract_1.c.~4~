@@ -1,0 +1,25 @@
+#include <pract_1.h>
+#include <lcd.c>
+
+void main()
+{
+   lcd_init();
+   int digitos[10] = {0b00111111, 0b00000110,0b01011011, 0b01001111,
+   0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111};
+   
+   
+   
+   float W[7] = {5.02844559,-1.62532975,-3.15659253,1.94180874,-4.54300769,-7.06091107,1.33117682};
+   float b = 3.00670671;
+   
+   while(TRUE)
+   {
+      lcd_gotoxy(1,1);
+      printf(lcd_putc,"HOLA MUNDO");
+      //for (int i=0; i<10;i++)
+         
+
+      //TODO: User Code
+   }
+
+}

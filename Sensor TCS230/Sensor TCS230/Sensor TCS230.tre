@@ -1,0 +1,67 @@
+ÀÄSensor TCS230
+   ÀÄMAIN  0/224  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄlcd_init  0/47  Ram=2
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄlcd_send_nibble  0/46  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄlcd_send_nibble  0/46  Ram=1
+      ³  ÃÄ@const629  0/8  Ram=0
+      ³  ÃÄlcd_send_byte  0/39  Ram=3
+      ³  ³  ÃÄlcd_send_nibble  0/46  Ram=1
+      ³  ³  ÀÄlcd_send_nibble  0/46  Ram=1
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄTCS230_init  0/5  Ram=0
+      ÃÄTCS230_getFrequence_red  0/40  Ram=2
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄTCS230_getFrequence_green  0/40  Ram=2
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄTCS230_getFrequence_blue  0/40  Ram=2
+      ³  ÀÄ@delay_ms1  0/20  Ram=1
+      ÃÄlcd_clear  0/92  Ram=0
+      ³  ÀÄ@PSTRINGC7_643  (Inline)  Ram=4
+      ³     ÃÄlcd_putc  0/36  Ram=1
+      ³     ³  ÃÄlcd_send_byte  0/39  Ram=3
+      ³     ³  ³  ÀÄ*
+      ³     ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³     ³  ÃÄlcd_gotoxy  0/18  Ram=4
+      ³     ³  ³  ÀÄlcd_send_byte  0/39  Ram=3
+      ³     ³  ³     ÀÄ*
+      ³     ³  ÃÄlcd_send_byte  0/39  Ram=3
+      ³     ³  ³  ÀÄ*
+      ³     ³  ÀÄlcd_send_byte  0/39  Ram=3
+      ³     ³     ÀÄ*
+      ³     ÀÄlcd_putc  0/36  Ram=1
+      ³        ÀÄ*
+      ÃÄlcd_gotoxy  0/18  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PRINTF_LU_643  0/99  Ram=9
+      ³  ÀÄlcd_putc  0/36  Ram=1
+      ³     ÀÄ*
+      ÃÄlcd_gotoxy  0/18  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PRINTF_LU_643  0/99  Ram=9
+      ³  ÀÄ*
+      ÃÄlcd_gotoxy  0/18  Ram=4
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄlcd_putc  0/36  Ram=1
+      ³  ÀÄ*
+      ÃÄ@PRINTF_LU_643  0/99  Ram=9
+      ³  ÀÄ*
+      ÀÄ@delay_ms1  0/20  Ram=1

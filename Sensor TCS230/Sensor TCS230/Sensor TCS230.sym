@@ -1,0 +1,104 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     time_freq
+021-022 red
+023-024 green
+025-026 blue
+027-028 @PRINTF_LU_643.P1
+027-028 TCS230_getFrequence_green.frequence_green
+027     lcd_init.i
+027-028 TCS230_getFrequence_blue.frequence_blue
+027-028 TCS230_getFrequence_red.frequence_red
+027     @PSTRINGC7_643.@SCRATCH1
+028     lcd_init.@SCRATCH1
+028     @PSTRINGC7_643.@SCRATCH2
+029     @PSTRINGC7_643.@SCRATCH3
+029     @PRINTF_LU_643.@SCRATCH1
+02A     @PSTRINGC7_643.@SCRATCH4
+02A     @PRINTF_LU_643.@SCRATCH2
+02B     @PRINTF_LU_643.@SCRATCH3
+02C     @PRINTF_LU_643.@SCRATCH4
+02D     @PRINTF_LU_643.@SCRATCH5
+02E     @PRINTF_LU_643.@SCRATCH6
+02F     @PRINTF_LU_643.@SCRATCH7
+030     lcd_putc.c
+031     lcd_gotoxy.x
+031     @delay_ms1.P1
+032     lcd_gotoxy.y
+033     lcd_gotoxy.address
+034     lcd_gotoxy.@SCRATCH1
+035     lcd_send_byte.address
+036     lcd_send_byte.n
+037     lcd_send_byte.@SCRATCH1
+038     lcd_send_nibble.nibble
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  LCD_INIT_STRING.call
+000008  LCD_INIT_STRING.data
+00000C  @const649.call
+00000D  @delay_ms1
+000021  lcd_send_nibble
+00004F  lcd_send_byte
+000076  lcd_init
+0000A5  TCS230_init
+0000AA  TCS230_getFrequence_red
+0000D2  TCS230_getFrequence_green
+0000FA  TCS230_getFrequence_blue
+000122  lcd_gotoxy
+000134  lcd_putc
+000158  lcd_clear
+00015D  @PSTRINGC7_643
+0001B4  @PRINTF_LU_643
+000217  @cinit1
+000217  MAIN
+000229  @cinit2
+
+Project Directory:
+    C:\Users\CQ43\Documents\Curso Pic CCS\21-30\Sensor TCS230\
+
+Project Files:
+    Sensor TCS230.c                                         [02-jul-20 14:13  CRC=951CB9F5]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [12-nov-13 14:35  CRC=81334808]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\TCS230.c [29-abr-20 14:42  CRC=CE93340B]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\LCD_16X2.c [19-jun-20 20:32  CRC=F406DE8D]
+
+Source signature=CCF0F322
+
+Units:
+    Sensor TCS230 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Sensor TCS230.xsym
+    Errors:      Sensor TCS230.err
+    Ext Symbols: Sensor TCS230.esym
+    INHX8:       Sensor TCS230.hex
+    Symbols:     Sensor TCS230.sym
+    List:        Sensor TCS230.lst
+    Debug/COFF:  Sensor TCS230.cof
+    Project:     Sensor TCS230.ccspjt
+    Call Tree:   Sensor TCS230.tre
+    Statistics:  Sensor TCS230.STA

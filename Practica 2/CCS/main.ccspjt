@@ -1,0 +1,108 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F887
+CCSVerions=5.091
+Compiler=PCM
+CCSVersion=5.091
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 2\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=5
+D1=13-11-2021
+D1_L=11
+D1_L1=[50891]Project Opened.
+D1_L2=[50899]Started Editing.
+D1_L3=[51934]Stopped Editing.
+D1_L4=[52215]Started Editing.
+D1_L5=[53134]Stopped Editing.
+TotalEdit=68
+TotalDebug=0
+D1_E=28
+D1_D=0
+D1_L6=[53134]Project Closed.
+D1_L7=[53263]Project Opened.
+D1_L8=[53282]Project Closed.
+D1_L9=[53311]Project Opened.
+D1_L10=[53321]Started Editing.
+D1_L11=[55060]Stopped Editing.
+D2=14-11-2021
+D2_L=10
+D2_L1=[38728]Started Editing.
+D2_L2=[39222]Stopped Editing.
+D2_L3=[40235]Started Editing.
+D2_L4=[40564]Stopped Editing.
+D2_L5=[41428]Started Editing.
+D2_L6=[41810]Stopped Editing.
+D2_L7=[44321]Started Editing.
+D2_L8=[45003]Stopped Editing.
+D2_L9=[45401]Started Editing.
+D2_L10=[46014]Stopped Editing.
+D3=18-11-2021
+D3_L=19
+D3_L1=[40575]Started Editing.
+D3_L2=[40969]Project Opened.
+D3_L3=[40975]Started Editing.
+D3_L4=[41512]Stopped Editing.
+D3_L5=[42721]Started Editing.
+D3_L6=[43078]Stopped Editing.
+D3_L7=[44671]Started Editing.
+D3_L8=[44980]Stopped Editing.
+D3_E=6
+D3_D=0
+D3_L9=[45528]Project Closed.
+D3_L10=[51389]Project Opened.
+D3_L11=[51401]Started Editing.
+D3_L12=[51715]Stopped Editing.
+D3_L13=[51838]Started Editing.
+D3_L14=[52267]Stopped Editing.
+D3_L15=[52926]Project Opened.
+D3_L16=[52937]Started Editing.
+D3_L17=[53800]Stopped Editing.
+D3_L18=[54439]Started Editing.
+D3_L19=[54759]Stopped Editing.
+D4=19-11-2021
+D4_L=3
+D4_L1=[40571]Started Editing.
+D4_L2=[41389]Stopped Editing.
+D4_E=24
+D4_D=0
+D4_L3=[41389]Project Closed.
+D5=21-11-2021
+D5_L=8
+D5_L1=[64775]Project Opened.
+D5_L2=[64780]Started Editing.
+D5_L3=[65270]Stopped Editing.
+D5_E=10
+D5_D=0
+D5_L4=[65270]Project Closed.
+D5_L5=[65282]Project Opened.
+D5_L6=[65340]Started Editing.
+D5_L7=[65658]Stopped Editing.
+D5_L8=[67488]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=141
+Count=3
+2=TCS230.c
+t2=1
+3=main.h
+t3=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=57
+[Units]
+Count=1
+1=main (main)

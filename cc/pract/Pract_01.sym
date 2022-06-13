@@ -1,0 +1,166 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-066 P
+067     aux
+068-06B b
+06C     neuro_1
+06D     neuro_2
+06E     neuro_3
+06F     neuro_01
+070     neuro_02
+071     neuro_03
+072-073 @sprintf_string
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+0A0-0BB W1
+0BC-0D7 W2
+0D8-0DE num
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+110-12B W3
+12C-147 W
+148     Pros_neu.aux
+148     lcd_init.i
+149-14C lcd_init.LCD_INIT_STRING
+149     Pros_neu.k
+14A     Pros_neu.k
+14B     Pros_neu.k
+14C     Pros_neu.n
+14D     Pros_neu.i
+14D     lcd_init.@SCRATCH1
+14E     Pros_neu.j
+14F-152 Pros_neu.sum
+153     Pros_neu.perceptron
+154     @MUL88.P1
+154     Pros_neu.@SCRATCH1
+154     @PSTRINGC7_691.@SCRATCH1
+155     @MUL88.P1
+155     Pros_neu.@SCRATCH2
+155     @PSTRINGC7_691.@SCRATCH2
+156     Pros_neu.@SCRATCH3
+156     @PSTRINGC7_691.@SCRATCH3
+157     lcd_putc.c
+157     Pros_neu.@SCRATCH4
+157     @PSTRINGC7_691.@SCRATCH4
+158-15B hardlim.n
+158     @delay_ms1.P1
+158     lcd_gotoxy.x
+158     Pros_neu.@SCRATCH5
+159     lcd_gotoxy.y
+159-15A @ITOF.P1
+159-15C @MULFF.P2
+159     Pros_neu.@SCRATCH6
+15A     lcd_gotoxy.address
+15A     Pros_neu.@SCRATCH7
+15B-15E @ADDFF.P1
+15B     lcd_gotoxy.@SCRATCH1
+15C     lcd_send_byte.address
+15C     hardlim.value
+15D-160 @MULFF.P1
+15D-160 @FLT.P2
+15D     lcd_send_byte.n
+15E     lcd_read_byte.low
+15E     lcd_send_byte.@SCRATCH1
+15F-162 @ADDFF.P1
+15F     lcd_read_byte.high
+15F     lcd_send_nibble.n
+160     lcd_read_nibble.n
+160     lcd_read_byte.@SCRATCH1
+161-164 @FLT.P1
+161     lcd_read_nibble.@SCRATCH1
+161     @MULFF.@SCRATCH1
+162     @MULFF.@SCRATCH2
+163     @MULFF.@SCRATCH3
+163     @ADDFF.@SCRATCH1
+164     @MULFF.@SCRATCH4
+164     @ADDFF.@SCRATCH2
+165     @FLT.@SCRATCH1
+165     @MULFF.@SCRATCH5
+165     @ADDFF.@SCRATCH3
+166     @FLT.@SCRATCH2
+166     @ADDFF.@SCRATCH4
+167     @ADDFF.@SCRATCH5
+168     @ADDFF.@SCRATCH6
+169     @ADDFF.@SCRATCH7
+16A     @ADDFF.@SCRATCH8
+
+ROM Allocation:
+000004  @const747.call
+00000A  @const752.call
+000011  @const753.call
+000017  @const754.call
+00001D  @const755.call
+000024  @const756.call
+00002A  @const757.call
+000033  @const762.call
+00003A  @const763.call
+000041  @delay_ms1
+000056  lcd_send_nibble
+000091  lcd_read_nibble
+0000CC  lcd_send_byte
+0000D4  lcd_read_byte
+000135  lcd_init
+00018B  obt_numero
+000228  lcd_gotoxy
+00023C  lcd_putc
+000276  @PSTRINGC7_691
+0002C6  @ADDFF
+00040C  Pros_neu
+000512  @MUL88
+00057E  @ITOF
+0005AA  @MULFF
+000673  hardlim
+00067F  @FLT
+000800  @cinit1
+000800  MAIN
+000816  @cinit2
+
+Project Directory:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\cc\pract\
+
+Project Files:
+    Pract_01.c                                              [07-nov.-21 21:05  CRC=502C616A]
+    Pract_01.h                                              [07-nov.-21 21:05  CRC=00000000]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [30-oct.-19 14:48  CRC=15D497A0]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 09:05  CRC=D1A6378A]
+
+Source signature=094D681E
+Program memory checksum=0000
+Hex file CRC=8893
+
+Units:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\cc\pract\Pract_01 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   Pract_01.xsym
+    Errors:      Pract_01.err
+    Ext Symbols: Pract_01.esym
+    INHX8:       Pract_01.hex
+    Symbols:     Pract_01.sym
+    List:        Pract_01.lst
+    Debug/COFF:  Pract_01.cof
+    Project:     Pract_01.ccspjt
+    Call Tree:   Pract_01.tre
+    Statistics:  Pract_01.STA

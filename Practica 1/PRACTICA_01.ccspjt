@@ -1,0 +1,51 @@
+[PROJECT]
+Target=PRACTICA_01.hex
+Processor_Text=PIC18F4550
+CCSVerions=5.091
+Compiler=PCH
+CCSVersion=5.091
+[Target Data]
+FileList=PRACTICA_01.c
+[Directories]
+Include=
+[C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 1\PRACTICA_01]
+Type=4
+[mru-list]
+1=PRACTICA_01.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=24-10-2021
+D1_L=10
+D1_L1=[59367]Project Opened.
+D1_L2=[59412]Started Editing.
+D1_L3=[59716]Stopped Editing.
+TotalEdit=2
+TotalDebug=0
+D1_E=2
+D1_D=0
+D1_L4=[59850]Project Closed.
+D1_L5=[59896]Project Opened.
+D1_L6=[59911]Project Closed.
+D1_L7=[59926]Project Opened.
+D1_L8=[68911]Started Editing.
+D1_L9=[68931]Stopped Editing.
+D1_L10=[68931]Project Closed.
+
+[Opened Files]
+1=pract_1.c
+t1=1
+2=pract_1.c
+t2=33
+Count=1
+[PRACTICA_01.c]
+Type=4
+[Units]
+Count=1
+1=PRACTICA_01 (main)
+
+[defines]
+buildcount=1

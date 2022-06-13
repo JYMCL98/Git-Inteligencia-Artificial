@@ -1,0 +1,106 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+006     lcd
+006     lcdlat
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @TRIS_C
+021     a0
+022     a1
+023     a2
+024     a3
+025     a4
+026     a5
+027     b3
+028-02E MAIN.numero_0
+02F-035 MAIN.numero_1
+036-03C MAIN.numero_2
+03D-043 MAIN.numero_3
+044-04A MAIN.numero_4
+04B-051 MAIN.numero_5
+052-058 MAIN.numero_6
+059-05F MAIN.numero_7
+060-066 MAIN.numero_8
+067-06D MAIN.numero_9
+06E-071 MAIN.b_1
+072-075 MAIN.b_2
+076     MAIN.i
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+07B-07E MAIN.b_3
+086     lcdtris
+0A0-0BB MAIN.W_1
+0BC-0D7 MAIN.W_2
+0D8     MAIN.j
+0D9-0DC MAIN.sum
+0DD     MAIN.perceptron
+0DE-0E4 MAIN.num
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+110-12B MAIN.W_3
+146     lcd_init.i
+147-14A lcd_init.LCD_INIT_STRING
+14B     @delay_ms1.P1
+14B     lcd_init.@SCRATCH1
+14C     lcd_send_byte.address
+14D     lcd_send_byte.n
+14E     lcd_read_byte.low
+14E     lcd_send_byte.@SCRATCH1
+14F     lcd_read_byte.high
+14F     lcd_send_nibble.n
+150     lcd_read_byte.@SCRATCH1
+
+ROM Allocation:
+000004  @delay_ms1
+000019  lcd_send_nibble
+000027  lcd_read_nibble
+00002D  lcd_init
+000072  lcd_send_byte
+000079  lcd_read_byte
+0000CB  MAIN
+0000CB  @cinit1
+0000D5  @cinit2
+
+Project Directory:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 1\
+
+Project Files:
+    pract_1.c                                               [24-oct.-21 19:23  CRC=A0847D5F]
+    pract_1.h                                               [15-oct.-21 16:12  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F876.h [30-oct.-19 15:48  CRC=66252361]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 10:05  CRC=D1A6378A]
+
+Source signature=A9F60FD4
+Program memory checksum=0000
+Hex file CRC=454B
+
+Units:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 1\pract_1 (main)
+
+Compiler Settings:
+    Processor:      PIC16F876
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   pract_1.xsym
+    Errors:      pract_1.err
+    Ext Symbols: pract_1.esym
+    INHX8:       pract_1.hex
+    Symbols:     pract_1.sym
+    List:        pract_1.lst
+    Debug/COFF:  pract_1.cof
+    Project:     pract_1.ccspjt
+    Call Tree:   pract_1.tre
+    Statistics:  pract_1.STA

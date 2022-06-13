@@ -1,0 +1,158 @@
+#include <main.h>
+
+// Puertos digitales
+#use standard_io(B)
+#use standard_io(D)
+
+// Pines de la LCD
+#define LCD_ENABLE_PIN PIN_B0
+#define LCD_RS_PIN PIN_B1
+#define LCD_RW_PIN PIN_B2
+#define LCD_DATA4 PIN_B4
+#define LCD_DATA5 PIN_B5
+#define LCD_DATA6 PIN_B6
+#define LCD_DATA7 PIN_B7
+
+// Pines para la galga extenxiométrica
+#define DT1 pin_c0
+#define SCK pin_c1
+
+// Pines del sensor de color
+#define P_TCS230 PIN_D5
+#define S2 PIN_D6
+#define S3 PIN_D7
+
+// Librerias utilizadas
+#include <TCS230.c>
+#include <lcd.c>
+
+// Variables para el almacenamiento de los valores RGB
+long red = 0;
+long green = 0;
+long blue = 0;
+
+// Variables para las funciones de la galga
+float SCALE = 230.32;
+float gram = 0;
+float peso = 0;
+
+// Matriz de pesos sinapticos
+float W[4]={16294.73725433,-989.21419675,-13852.17922108,540.60805285};
+// Vector de polarización
+float b = 345.13892182;
+
+// Matriz donde se almacenan los valores de RGB y de peso
+int comb[4]={0,0,0,0};
+
+// Función escalón
+int hardlim(float n){
+   int value;
+   if(n>0){
+      value=1;
+   }
+   else{
+      value=0;
+   }
+   return value;
+}
+
+unsigned int32 readCount(void) {
+  unsigned int32 data;
+  unsigned int8 j;
+  output_bit(DT1, 1);
+  output_bit(SCK, 0);
+  data = 0;
+
+  while (input(DT1));
+  for (j = 0; j < 24; j++) {
+    output_bit(SCK, 1);
+    data = data << 1;
+    output_bit(SCK, 0);
+    if (input(DT1)) {
+      data++;
+    }
+  }
+  output_bit(SCK, 1);
+  data = data ^ 0x800000;
+  output_bit(SCK, 0);
+  return data;
+}
+
+int32 readAverage(void) {
+  unsigned int32 sum = 0;
+  for (int k = 0; k < 20; k++) {
+    sum = sum + readCount();
+  }
+  sum = sum / 20;
+  return sum;
+}
+
+void main()
+{
+   // Inicializamos las librerías
+   lcd_init();
+   TCS230_init();
+
+   unsigned int32 read1 = 0, offset = 0;
+   offset = readAverage();
+   
+   while(true)
+   {
+      read1 = readAverage();
+      if (offset >= read1) {
+        float val1 = (offset - read1);
+        gram = val1;
+      } else {
+        float val2 = (read1 - offset);
+        gram = val2;
+      }
+      peso = gram / SCALE;
+      
+      
+      // Actualización de variables
+      red = TCS230_getFrequence_red();                  // Lectura para el color rojo
+      green = TCS230_getFrequence_green();              // Lectura para el color verde
+      blue = TCS230_getFrequence_blue();                // Lectura para el color azul
+      
+      comb[0] = red;
+      comb[1] = green;
+      comb[2] = blue;
+      comb[3] = peso;
+      
+      // Visualización de los valores
+      printf(lcd_putc, "\f");
+      lcd_gotoxy(1,1);
+      printf(lcd_putc,"R: %Lu", red);
+      lcd_gotoxy(1,2);
+      printf(lcd_putc,"G: %Lu", green);
+      lcd_gotoxy(9,1);
+      printf(lcd_putc,"B: %Lu", blue);
+      lcd_gotoxy(8,2);
+      printf(lcd_putc, "W:%f", peso);
+      delay_ms(1000);
+      
+      float sum=0;
+      int perceptron=0;   
+      int j=0;
+      
+      // Clasificación de frutas
+      while(j<4){
+         sum += comb[j]*W[j];
+         j++;
+      }
+         
+      perceptron = hardlim(sum+b);
+         
+      if(perceptron==1){
+         lcd_gotoxy(1,1);
+         printf(lcd_putc,"\f Manzana");
+         delay_ms(1000);
+      }
+      else{
+         lcd_gotoxy(1,1);
+         printf(lcd_putc,"\f Mandarina");
+         delay_ms(1000);
+      }
+      
+   }
+}

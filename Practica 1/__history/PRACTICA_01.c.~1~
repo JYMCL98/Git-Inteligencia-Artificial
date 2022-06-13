@@ -1,0 +1,14 @@
+#include <PRACTICA_01.h>
+
+void main()
+{
+	setup_adc_ports(NO_ANALOGS, VSS_VDD);
+
+	while(TRUE)
+	{
+
+
+		//TODO: User Code
+	}
+
+}

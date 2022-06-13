@@ -1,0 +1,4 @@
+#include <16F887.h>
+#device ADC=8
+#use delay(crystal=4MHz)
+

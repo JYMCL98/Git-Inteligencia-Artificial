@@ -1,0 +1,180 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     a0
+005     a1
+006     a2
+007     a3
+008     a4
+009     a5
+00A     b3
+00B     d0
+00C     d1
+00D     d2
+00E-029 W
+02A-045 W_pares
+046-061 W_impares
+062-07D W_mayores_5
+07E-081 b
+082-083 @sprintf_string
+084-08A MAIN.numero_0
+08B-091 MAIN.numero_1
+092-098 MAIN.numero_2
+099-09F MAIN.numero_3
+0A0-0A6 MAIN.numero_4
+0A7-0AD MAIN.numero_5
+0AE-0B4 MAIN.numero_6
+0B5-0BB MAIN.numero_7
+0BC-0C2 MAIN.numero_8
+0C3-0C9 MAIN.numero_9
+0CA     MAIN.res
+0CB     MAIN.i
+0CC     MAIN.i
+0CD     MAIN.i
+0CE     MAIN.i
+0CF     MAIN.j
+0D0     MAIN.k
+0D1-0D4 MAIN.sum
+0D5     MAIN.perceptron
+0D6     lcd_init.i
+0D6     numeros.a0
+0D6     MAIN.@SCRATCH1
+0D6     @PSTRINGC_723.@SCRATCH1
+0D7     numeros.a1
+0D7-0DA lcd_init.LCD_INIT_STRING
+0D7     MAIN.@SCRATCH2
+0D7     @PSTRINGC_723.@SCRATCH2
+0D8     numeros.a2
+0D8     lcd_putc.c
+0D8     MAIN.@SCRATCH3
+0D9     lcd_gotoxy.x
+0D9     numeros.a3
+0D9     MAIN.@SCRATCH4
+0DA     lcd_gotoxy.y
+0DA     numeros.a4
+0DA-0DD hardlim.n
+0DA     MAIN.@SCRATCH5
+0DB     numeros.a5
+0DB     @delay_ms1.P1
+0DB-0DE @MULFF.P2
+0DB-0DC @ITOF.P3
+0DB     lcd_gotoxy.address
+0DB     lcd_init.@SCRATCH1
+0DB     MAIN.@SCRATCH6
+0DC     numeros.b3
+0DC     lcd_gotoxy.@SCRATCH1
+0DC     MAIN.@SCRATCH7
+0DD-0E0 @ADDFF.P1
+0DD     numeros.resultado
+0DD     lcd_send_byte.address
+0DE     hardlim.value
+0DE     lcd_send_byte.n
+0DF-0E2 @MULFF.P1
+0DF-0E2 @FLT.P2
+0DF     lcd_read_byte.low
+0DF     lcd_send_byte.@SCRATCH1
+0E0     lcd_read_byte.high
+0E0     lcd_send_nibble.n
+0E1-0E4 @ADDFF.P1
+0E1     lcd_read_nibble.n
+0E1     lcd_read_byte.@SCRATCH1
+0E2     lcd_read_nibble.@SCRATCH1
+0E3-0E6 @FLT.P1
+0E3     @MULFF.@SCRATCH1
+0E4     @MULFF.@SCRATCH2
+0E5     @MULFF.@SCRATCH3
+0E5     @ADDFF.@SCRATCH1
+0E6     @ADDFF.@SCRATCH2
+0E7     @FLT.@SCRATCH1
+0E7     @ADDFF.@SCRATCH3
+0E8     @FLT.@SCRATCH2
+0E8     @ADDFF.@SCRATCH4
+0E9     @ADDFF.@SCRATCH5
+0EA     @ADDFF.@SCRATCH6
+0EB     @ADDFF.@SCRATCH7
+0EC     @ADDFF.@SCRATCH8
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE     CCP_1
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @const783.call
+000010  @const800.call
+000022  @const801.call
+00002E  @const802.call
+00003A  @const803.call
+000048  @const804.call
+000056  @const805.call
+000060  @const806.call
+00006A  @const807.call
+000076  @delay_ms1
+00009E  lcd_send_nibble
+0000DC  lcd_read_nibble
+00012E  lcd_read_byte
+000178  lcd_send_byte
+0001BE  lcd_init
+00023A  lcd_gotoxy
+00025C  lcd_putc
+0002AE  @PSTRINGC_723
+0002CE  numeros
+000426  @ITOF
+00045C  @MULFF
+00054E  @ADDFF
+0007B8  @FLT
+000830  hardlim
+00085C  MAIN
+00085C  @cinit1
+000870  @cinit2
+
+Project Directory:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 1\
+
+Project Files:
+    PRACTICA_01.c                                           [24-oct.-21 16:30  CRC=79AC90A4]
+    PRACTICA_01.h                                           [24-oct.-21 16:29  CRC=00000000]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [30-oct.-19 15:52  CRC=B77A8E99]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c [22-feb.-16 10:05  CRC=D1A6378A]
+
+Source signature=D4738E51
+Program memory checksum=0000
+Hex file CRC=910A
+
+Units:
+    C:\Users\jymcl\Documents\Chapingo\7° semestre\Inteligencia Artificial\Practica 1\PRACTICA_01 (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   PRACTICA_01.xsym
+    Errors:      PRACTICA_01.err
+    Ext Symbols: PRACTICA_01.esym
+    INHX32:      PRACTICA_01.hex
+    Symbols:     PRACTICA_01.sym
+    List:        PRACTICA_01.lst
+    Debug/COFF:  PRACTICA_01.cof
+    Project:     PRACTICA_01.ccspjt
+    Call Tree:   PRACTICA_01.tre
+    Statistics:  PRACTICA_01.STA

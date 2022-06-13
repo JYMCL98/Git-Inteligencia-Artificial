@@ -1,0 +1,16 @@
+ÀÄpract_1
+   ÀÄMAIN  0/379  Ram=217
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÀÄlcd_init  0/158  Ram=6
+         ÃÄ@delay_ms1  0/21  Ram=1
+         ÃÄlcd_send_nibble  0/14  Ram=1
+         ÃÄ@delay_ms1  0/21  Ram=1
+         ÃÄlcd_send_nibble  0/14  Ram=1
+         ÃÄ@delay_ms1  0/21  Ram=1
+         ÀÄlcd_send_byte  (Inline)  Ram=3
+            ÃÄlcd_read_byte  (Inline)  Ram=3
+            ³  ÃÄlcd_read_nibble  0/6  Ram=0
+            ³  ÀÄlcd_read_nibble  0/6  Ram=0
+            ÃÄlcd_send_nibble  0/14  Ram=1
+            ÀÄlcd_send_nibble  0/14  Ram=1
